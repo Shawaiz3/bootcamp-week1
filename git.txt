@@ -187,3 +187,56 @@ Great! Here's a **simple visual diagram** of the Git & GitHub workflow you follo
 ---
 
 Let me know if you want this image in **PNG format** or want me to draw this diagram graphically for you!
+
+
+
+Great observation! In **VS Code**, the **"M"** stands for:
+
+> ✅ **Modified**
+
+---
+
+### 💡 Explanation:
+
+When you're working inside a **Git-tracked project**, VS Code shows file status in the **Source Control panel**.
+
+| Symbol | Meaning                                                          |
+| ------ | ---------------------------------------------------------------- |
+| `M`    | **Modified** — file was changed but **not yet staged/committed** |
+| `U`    | Untracked — new file not added to Git yet                        |
+| `A`    | Added — file staged to be committed                              |
+| `D`    | Deleted — file deleted but not yet committed                     |
+| `R`    | Renamed                                                          |
+| `C`    | Copied                                                           |
+
+---
+
+### 🛠 What You Can Do:
+
+If you see `M` after editing:
+
+1. Run:
+
+   ```bash
+   git status
+   ```
+
+   You'll see the modified files listed.
+
+2. To **stage** the change:
+
+   ```bash
+   git add <filename>
+   ```
+
+3. To **commit** the change:
+
+   ```bash
+   git commit -m "Describe what you changed"
+   ```
+
+After that, the `M` will disappear because your changes are saved in Git.
+
+---
+
+Let me know if you'd like a real example using a file!
