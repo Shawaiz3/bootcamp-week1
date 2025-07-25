@@ -1,17 +1,31 @@
 //Task 3
+import { FileError, readJson } from "./safeRead.js";
 
-import { readJson } from "./safeRead.js";
-async function main() {
+const readFile = async function () {
     try {
         const data = await readJson('./MOCK_DATA.json');
         console.log(`Parsed Data`, data);
     } catch (err) {
-        if (err === "FileError") {
-            console.log("custom file error: ", err.message);
+        // log the other errors except file error here . and pass the file error to main catch block
+        if (!(err instanceof FileError)) {
+            console.log("Error Other than File error: ", err.message)
         } else {
-            console.log("Error From Main: ", err.message)
+            throw err;
+        }
+    }
+}
+
+async function main() {
+    try {
+        await readFile()
+    } catch (err) {
+        if (err instanceof FileError) // checks if the error is the instance of custom error class of not
+            {
+            console.log("custom file error: ", err.message);
         }
     }
 
 }
 main();
+
+//async ,  sync
